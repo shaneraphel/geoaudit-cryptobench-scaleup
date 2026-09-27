@@ -1,0 +1,122 @@
+{
+  "schema": "geoaudit.scaleup.compatible.v1",
+  "clinical_grade": false,
+  "reads_test_fold": false,
+  "published_half": {
+    "field_gated": 0.8045356538898498,
+    "field_raw": 0.7872717595597555,
+    "logistic_gated": 0.8007733428798982,
+    "logistic_raw": 0.7975137503750888,
+    "field_gate": "r18 w1.0",
+    "logistic_gate": "r18 w0.5",
+    "paired_roc": {
+      "n_paired": 384,
+      "delta": 0.003762,
+      "ci95": [
+        -0.005702,
+        0.012504
+      ],
+      "excludes_zero": false
+    },
+    "reproduced": true,
+    "logistic_newton_steps": 9,
+    "logistic_converged": true
+  },
+  "exactness": {
+    "max_abs_reconstruction_error": 0.0,
+    "n_tables": 5152,
+    "n_tables_used": 4853,
+    "n_cells": 82432,
+    "n_cells_empty": 1028,
+    "integer_multiplicity_bytes": 41216,
+    "logistic_coefficient_bytes": 5168
+  },
+  "top_decile": {
+    "fraction": 0.1,
+    "field_capture": 0.441093,
+    "logistic_capture": 0.443868,
+    "paired_field_minus_logistic": {
+      "n_paired": 384,
+      "delta": -0.002774,
+      "ci95": [
+        -0.015475,
+        0.009571
+      ],
+      "excludes_zero": false
+    },
+    "n_chains": 384
+  },
+  "fit_curve": [
+    {
+      "numer": 1,
+      "denom": 8,
+      "n_fit_chains": 47,
+      "n_fit_clusters": 47,
+      "logistic_converged": true,
+      "field": {
+        "roc_auc": 0.7326554945012664,
+        "top_decile_capture": 0.3288448147496297
+      },
+      "logistic": {
+        "roc_auc": 0.760604161141161,
+        "top_decile_capture": 0.36765529567861455
+      }
+    },
+    {
+      "numer": 2,
+      "denom": 8,
+      "n_fit_chains": 95,
+      "n_fit_clusters": 95,
+      "logistic_converged": true,
+      "field": {
+        "roc_auc": 0.763754720089962,
+        "top_decile_capture": 0.37830861177687947
+      },
+      "logistic": {
+        "roc_auc": 0.7799908227229899,
+        "top_decile_capture": 0.3868326542581833
+      }
+    },
+    {
+      "numer": 4,
+      "denom": 8,
+      "n_fit_chains": 192,
+      "n_fit_clusters": 191,
+      "logistic_converged": true,
+      "field": {
+        "roc_auc": 0.7921304888376833,
+        "top_decile_capture": 0.4236983527621036
+      },
+      "logistic": {
+        "roc_auc": 0.7949262259276896,
+        "top_decile_capture": 0.42666072761028867
+      }
+    },
+    {
+      "numer": 8,
+      "denom": 8,
+      "n_fit_chains": 386,
+      "n_fit_clusters": 383,
+      "logistic_converged": true,
+      "field": {
+        "roc_auc": 0.8045356538898498,
+        "top_decile_capture": 0.441093470702629
+      },
+      "logistic": {
+        "roc_auc": 0.8007733428798982,
+        "top_decile_capture": 0.44386787905448166
+      }
+    }
+  ],
+  "frozen_gates": {
+    "field": "r18 w1.0",
+    "logistic": "r18 w0.5"
+  },
+  "environment": {
+    "python": "3.12.8",
+    "numpy": "2.4.6",
+    "platform": "macOS-26.2-arm64-arm-64bit"
+  },
+  "what_this_does_not_say": "Top-decile capture and the fit curve are training-fold reads of the published halving. They do not open the official test fold, and they do not replace the manuscript's ROC sentence.",
+  "artifact_sha256": "1a3c93ddb2de38f1e3e81de593f3f6802dadd8743f262b16596e802deeec9ce3"
+}
