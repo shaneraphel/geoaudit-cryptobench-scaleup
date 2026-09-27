@@ -11,6 +11,7 @@ import argparse
 import csv
 import gzip
 import hashlib
+import http.client
 import io
 import json
 import time
@@ -66,7 +67,8 @@ def _get(url: str) -> bytes:
             req = urllib.request.Request(url, headers=UA)
             with urllib.request.urlopen(req, timeout=120) as r:
                 return r.read()
-        except (urllib.error.URLError, TimeoutError, ConnectionError) as exc:
+        except (urllib.error.URLError, TimeoutError, ConnectionError,
+                http.client.IncompleteRead, OSError) as exc:
             last = f"{type(exc).__name__}: {exc}"
             time.sleep(2 * (attempt + 1))
     raise RuntimeError(f"GET failed: {url} ({last})")
@@ -193,13 +195,20 @@ def collect(root: Path, manifest: Path, test_json: Path) -> dict:
                 break
             if not _accept_entry(entry):
                 continue
-            key = entry["entry_key"]
-            qp = query_dir / f"{key}.json"
-            cp = csv_dir / f"{key}.csv"
+            key = str(entry["entry_key"])
+            safe = "".join(ch if ch.isalnum() or ch in "-._" else "_" for ch in key)
+            qp = query_dir / f"{safe}.json"
+            cp = csv_dir / f"{safe}.csv"
+            qp.parent.mkdir(parents=True, exist_ok=True)
             if not qp.exists():
-                qp.write_bytes(_get(f"{API}/entry/{urllib.parse.quote(key)}/query-result"))
+                try:
+                    qp.write_bytes(_get(f"{API}/entry/{urllib.parse.quote(key)}/query-result"))
+                except (RuntimeError, OSError) as exc:
+                    print(f"  skip query {key}: {exc}", flush=True)
+                    continue
             if not cp.exists():
                 try:
+                    cp.parent.mkdir(parents=True, exist_ok=True)
                     blob = _get(f"{API}/entry/{urllib.parse.quote(key)}/download/{urllib.parse.quote(key)}.zip")
                     zf = zipfile.ZipFile(io.BytesIO(blob))
                     name = next(n for n in zf.namelist() if n.endswith("pocket_residues.csv"))

@@ -1,0 +1,58 @@
+{
+  "schema": "geoaudit.scaleup.ahoj_bridge.v1",
+  "clinical_grade": false,
+  "reads_test_fold": false,
+  "n_chains": 80,
+  "n_rows": 21415,
+  "n_uniprots": 10,
+  "split_seed": 20260928,
+  "columns": [
+    "ctrl~n_res@10",
+    "ctrl~n_c_charged@10",
+    "ctrl~n_c_polar@10",
+    "ctrl~n_c_hphob@10",
+    "e_charged@10",
+    "e_polar@10"
+  ],
+  "field_rounds": 4,
+  "logistic_full": {
+    "raw": 0.545814078357305,
+    "gated": 0.5375966883590594,
+    "gate": "r18 w0.5",
+    "newton_steps": 8,
+    "converged": true
+  },
+  "logistic_counts": {
+    "raw": 0.5378218227202672,
+    "gated": 0.5189064077199601,
+    "gate": "r18 w0.5",
+    "newton_steps": 8,
+    "converged": true
+  },
+  "integer_field": {
+    "raw": 0.566992962441579,
+    "gated": 0.5330158746323768,
+    "gate": "r18 w0.5",
+    "n_tables": 12,
+    "n_tables_used": 12
+  },
+  "field_minus_logistic": {
+    "n_paired": 56,
+    "delta": -0.004581,
+    "ci95": [
+      -0.014228,
+      0.00654
+    ],
+    "excludes_zero": false
+  },
+  "edges_minus_counts": {
+    "n_paired": 56,
+    "delta": 0.01869,
+    "ci95": [
+      0.010454,
+      0.026403
+    ],
+    "excludes_zero": true
+  },
+  "artifact_sha256": "7f4b0513ed505b3dd69d092ec6bd1ed6b7e22d43ec0345985cee40912ac25a7f"
+}
