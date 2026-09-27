@@ -10,6 +10,7 @@ import sys
 import numpy as np
 import pytest
 
+from scaleup import ahoj_bridge as B
 from scaleup import compatible as Cmod
 from scaleup import ecc as E
 from scaleup import constants as C
@@ -21,6 +22,7 @@ from scaleup import logistic as LG
 from scaleup import metrics as M
 from scaleup import run as R
 from scaleup import splits as S
+from scaleup import tape as T
 
 
 def test_constants_predeclared():
@@ -312,6 +314,25 @@ def test_edge_count_splits_three_graphs():
     assert clique_g[0, n_c] == 3 and clique_g[0, e] == 3
     assert E.spearman(np.array([0, 1, 2]), np.array([0, 1, 2])) == pytest.approx(1)
     assert np.isnan(E.spearman(np.array([1, 1, 1]), np.array([0, 1, 2])))
+
+
+def test_tape_and_test_fold_exclusion():
+    pdb = (
+        "ATOM      1  CA  ALA A  10      0.000   0.000   0.000  1.00  0.00           C\n"
+        "ATOM      2  CA  ARG A  11      3.800   0.000   0.000  1.00  0.00           C\n"
+        "ATOM      3  CA  UNK A  12      7.000   0.000   0.000  1.00  0.00           C\n"
+    )
+    resseq, codes, xyz = T.parse_ca(pdb, "A")
+    assert resseq.tolist() == [10, 11]
+    assert codes.tolist() == [0, 1]
+    assert xyz.shape == (2, 3)
+    blob = json.dumps({"7qoq": [{"holo_pdb_id": "7pho",
+                                 "apo_pymol_selection": "7qoq and (chain A)"}]}).encode()
+    ids = B.test_fold_pdb_ids(blob)
+    assert ids == {"7qoq", "7pho"}
+    got = B._csv_residues("chain,query_ligand,mapped_binding_residues\n"
+                          "7xzz,A_ZN,M_10 M_11\n")
+    assert got[("7xzz", "M")] == {10, 11}
 
 
 def test_no_torch_anywhere():
