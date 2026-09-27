@@ -162,9 +162,21 @@ def collect(root: Path, manifest: Path, test_json: Path) -> dict:
     pdb_dir = root / "pdb"
     for d in (search_dir, query_dir, csv_dir, pdb_dir):
         d.mkdir(exist_ok=True)
-    tapes_res, tapes_code, tapes_xyz, tapes_y = [], [], [], []
+    chain_dir = root / "chains"
+    chain_dir.mkdir(exist_ok=True)
+    tapes_code, tapes_xyz, tapes_y = [], [], []
     units, uniprots = [], []
     seen_pdb: set[str] = set()
+    for path in sorted(chain_dir.glob("*.npz")):
+        one = np.load(path, allow_pickle=False)
+        tapes_code.append(one["codes"])
+        tapes_xyz.append(one["ctr"])
+        tapes_y.append(one["y"])
+        units.append(str(one["unit"]))
+        uniprots.append(str(one["uniprot"]))
+        seen_pdb.add(str(one["unit"]).split("_", 1)[0])
+    if units:
+        print(f"resume {len(units)} chains already on disk", flush=True)
     n_skip = {"blocked": 0, "parse": 0, "short_label": 0, "length": 0}
     for acc in UNIPROTS:
         if len(units) >= MAX_CHAINS:
@@ -187,10 +199,14 @@ def collect(root: Path, manifest: Path, test_json: Path) -> dict:
             if not qp.exists():
                 qp.write_bytes(_get(f"{API}/entry/{urllib.parse.quote(key)}/query-result"))
             if not cp.exists():
-                blob = _get(f"{API}/entry/{urllib.parse.quote(key)}/download/{urllib.parse.quote(key)}.zip")
-                zf = zipfile.ZipFile(io.BytesIO(blob))
-                name = next(n for n in zf.namelist() if n.endswith("pocket_residues.csv"))
-                cp.write_bytes(zf.read(name))
+                try:
+                    blob = _get(f"{API}/entry/{urllib.parse.quote(key)}/download/{urllib.parse.quote(key)}.zip")
+                    zf = zipfile.ZipFile(io.BytesIO(blob))
+                    name = next(n for n in zf.namelist() if n.endswith("pocket_residues.csv"))
+                    cp.write_bytes(zf.read(name))
+                except (RuntimeError, zipfile.BadZipFile, StopIteration) as exc:
+                    print(f"  skip zip {key}: {exc}", flush=True)
+                    continue
             taken += 1
             q = json.loads(qp.read_text())
             residues = _csv_residues(cp.read_text())
@@ -230,11 +246,14 @@ def collect(root: Path, manifest: Path, test_json: Path) -> dict:
                 if int(y.sum()) < MIN_POCKET or int(y.sum()) == len(y):
                     n_skip["short_label"] += 1
                     continue
-                tapes_res.append(resseq)
+                unit = f"{pdb}_{chain}"
+                np.savez_compressed(
+                    chain_dir / f"{unit}.npz", codes=codes, ctr=xyz, y=y,
+                    unit=np.array(unit), uniprot=np.array(acc))
                 tapes_code.append(codes)
                 tapes_xyz.append(xyz)
                 tapes_y.append(y)
-                units.append(f"{pdb}_{chain}")
+                units.append(unit)
                 uniprots.append(acc)
                 seen_pdb.add(pdb)
                 print(f"  keep {pdb}_{chain} n={len(codes)} pos={int(y.sum())} "
