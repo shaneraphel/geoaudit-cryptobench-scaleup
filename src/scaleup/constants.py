@@ -60,8 +60,22 @@ PUBLISHED_CI = (-0.005702, 0.012504)
 PUBLISHED_N_PAIRED = 384
 REPRODUCE_TOL = 5e-5
 
-# Streaming block sizes. Small on purpose: the machine that runs this may
-# have little free RAM, and nothing here needs a whole matrix resident.
-BLOCK_ROWS = 1024
+# Row block for the Gram and the Newton Hessian. 8192 is table_bank.BLOCK
+# in the frozen paper; a different block changes float64 accumulation order
+# and the published half stops reproducing. The wire matrix itself stays
+# memory-mapped, so the resident set is one block, not the whole cache.
+BLOCK_ROWS = 8192
 GATE_CHUNK = 512
 DIGIT_MMAP_NAME = "_digits_train.npy"
+
+# Compatible instruments, declared before they are scored. They do not
+# replace the ROC ladder and they are not searched.
+# Top fraction of each chain's ranking. One cut, not a grid.
+TOP_FRACTION = 0.10
+# Nested fit-cluster fractions of the published fit half: 1/8, 2/8, 4/8, 8/8.
+# Smaller fractions are prefixes of one seeded shuffle, so each larger fit
+# contains the smaller one.
+FIT_FRACTION_DENOM = 8
+FIT_FRACTION_NUMS: tuple[int, ...] = (1, 2, 4, 8)
+SUBSAMPLE_SEED = PAIRING_SEED + 17
+SCHEMA_COMPATIBLE = "geoaudit.scaleup.compatible.v1"

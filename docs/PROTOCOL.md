@@ -25,6 +25,27 @@ asks whether that gap is a property of one halving.
   as new proteins. Every half is kept, including negative ones; the
   checker fails if the jsonl holds a negative half the summary drops.
 
+## Compatible instruments (declared before they are scored)
+
+Mean ROC-AUC is the manuscript's comparison, and this repository
+reproduces that one row before it reads anything else. It is not the
+comparison these two objects are built for: one is an integer table, the
+other is a fitted linear probability. Three further reads, all on the
+published halving, all fixed here:
+
+- Exactness. The pick-half field score is recomputed from the integer
+  multiplicities and the cell rates. The maximum absolute gap is reported.
+- Top-decile capture. For each chain, the share of its cryptic residues
+  that fall in the top tenth of that chain's ranking. The tenth is one
+  cut. It is not a grid, and it is not moved after the result.
+- Nested fit size. Both arms are refit on 1/8, 2/8, 4/8 and all of the
+  fit clusters. The shuffle seed is `20260725 + 17`. Smaller fractions
+  are prefixes of that shuffle. Each arm keeps the gate it chose at the
+  full fit, so the curve is sample size and not a second gate search.
+
+All four fit sizes are reported. A size at which the field leads is not
+quoted without the sizes at which it does not.
+
 ## What this cannot say
 
 A resolved gap is a training-fold statement. It does not open, and must

@@ -10,6 +10,7 @@ import sys
 import numpy as np
 import pytest
 
+from scaleup import compatible as Cmod
 from scaleup import constants as C
 from scaleup import data as D
 from scaleup import digits as DG
@@ -260,6 +261,29 @@ def test_published_half_gate_passes_and_fails():
     # other halves pass through untouched
     other = dict(good, split_seed=1)
     R.assert_published_half(other)
+
+
+def test_top_decile_capture_is_one_cut():
+    score = np.array([0.1, 0.9, 0.2, 0.05, 0.4, 0.8, 0.3, 0.7, 0.6, 0.0])
+    y = np.array([0, 1, 0, 0, 0, 1, 0, 0, 0, 1])
+    # n=10, tenth -> 1 residue, the top score is positive, 1 of 3 positives
+    got = M.top_fraction_capture(score, y, [10], 0.10)
+    assert got[0] == pytest.approx(1.0 / 3.0)
+    with pytest.raises(ValueError):
+        M.top_fraction_capture(score, y, [10], 0.0)
+
+
+def test_nested_fit_prefixes_are_nested():
+    units = [f"p{i}_A" for i in range(20)]
+    cof = {u: f"cl{i}" for i, u in enumerate(units)}
+    is_fit = np.array([i < 16 for i in range(20)])
+    small = Cmod.nested_fit_clusters(units, is_fit, cof, 1, 8, 99)
+    mid = Cmod.nested_fit_clusters(units, is_fit, cof, 4, 8, 99)
+    full = Cmod.nested_fit_clusters(units, is_fit, cof, 8, 8, 99)
+    assert set(np.flatnonzero(small)) <= set(np.flatnonzero(mid))
+    assert set(np.flatnonzero(mid)) <= set(np.flatnonzero(full))
+    assert full.tolist() == is_fit.tolist()
+    assert not small[16:].any()
 
 
 def test_no_torch_anywhere():

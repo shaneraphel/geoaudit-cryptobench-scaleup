@@ -11,7 +11,10 @@ FROZEN_COMMIT = 7245cfb279b0aa9587c2a914e52b6cd077868d1c
 MANIFEST_URL = https://raw.githubusercontent.com/shaneraphel/geoaudit-cryptobench/$(FROZEN_COMMIT)/data/cryptobench_apo/train_manifest.json
 CACHE_URL = https://github.com/shaneraphel/geoaudit-cryptobench-scaleup/releases/download/v0.1-data/_wide_cache_train.npz
 
-.PHONY: selftest data digits reproduce-half run summarise check clean
+COMPAT_JSON = $(RESULTS)/COMPATIBLE_READOUT.json
+COMPAT_TEX = paper/supplement_compatible.tex
+
+.PHONY: selftest data digits reproduce-half run summarise check compatible clean
 
 selftest:
 	$(PY) -m pytest tests/ -q
@@ -44,6 +47,9 @@ summarise:
 
 check:
 	$(PY) -m scaleup.run check --jsonl $(JSONL) --json $(JSON)
+
+compatible: digits $(DATA)/train_manifest.json
+	$(PY) -m scaleup.compatible --data-dir $(DATA) --json $(COMPAT_JSON) --tex $(COMPAT_TEX)
 
 clean:
 	rm -f $(JSONL) $(JSON) $(TEX)

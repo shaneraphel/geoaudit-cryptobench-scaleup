@@ -6,8 +6,9 @@ No torch, no sklearn, no import from the frozen paper repository.
 """
 from __future__ import annotations
 
-from . import constants, data, digits, field, gates, logistic, metrics, splits
+from . import (compatible, constants, data, digits, field, gates, logistic,
+                   metrics, splits)
 
-__version__ = "0.1.0"
-__all__ = ["constants", "data", "digits", "field", "gates", "logistic",
-           "metrics", "splits"]
+__version__ = "0.2.0"
+__all__ = ["compatible", "constants", "data", "digits", "field", "gates",
+           "logistic", "metrics", "splits"]

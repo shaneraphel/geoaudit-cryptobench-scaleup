@@ -18,7 +18,8 @@ only. The test suite fails if `torch` is ever imported.
 ## Reproduce
 
 ```bash
-make selftest   # every public interface, invoked on synthetic data
+make selftest    # every public interface, invoked on synthetic data
+make compatible  # reproduce the manuscript row, then exactness, top-decile, fit curve
 make data       # pinned cache + manifest, sha256-verified
 make digits     # within-chain quartiles, streamed to a memmap
 make run        # 32 halves, resume-safe jsonl, summary json + tex
@@ -45,6 +46,7 @@ commit. Results land in `results/`, the supplement section in
 | `src/scaleup/gates.py` | spread-matched spatial gate + search |
 | `src/scaleup/metrics.py` | ROC-AUC, paired and cluster bootstraps |
 | `src/scaleup/run.py` | CLI: run-half, run-all, summarise, check |
+| `src/scaleup/compatible.py` | exact integer reconstruction, top-decile capture, nested fit size |
 | `tests/test_interfaces.py` | each interface invoked against a naive loop |
 | `docs/PROTOCOL.md` | predeclared protocol (written before the run) |
 

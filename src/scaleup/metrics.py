@@ -74,6 +74,34 @@ def paired_bootstrap_ci(field_vec, logit_vec, draws: int, seed: int) -> dict:
             "excludes_zero": bool(lo > 0 or hi < 0)}
 
 
+def top_fraction_capture(score, y, n_res_per, fraction: float) -> list[float]:
+    """Share of a chain's positives that land in its top ``fraction`` of scores.
+
+    The cut is ``max(1, floor(fraction * n))`` residues, ties broken by
+    original order (mergesort is stable). Chains with no positives are NaN,
+    the same exclusion the ROC average uses. One fraction, not a search.
+    """
+    if not 0 < fraction <= 1:
+        raise ValueError("fraction must lie in (0, 1]")
+    score = np.asarray(score, dtype=np.float64)
+    y = np.asarray(y)
+    out: list[float] = []
+    off = 0
+    for n in n_res_per:
+        n = int(n)
+        s = score[off:off + n]
+        t = y[off:off + n]
+        off += n
+        n1 = int(np.sum(t == 1))
+        if n1 == 0:
+            out.append(float("nan"))
+            continue
+        k = max(1, int(np.floor(fraction * n)))
+        order = np.argsort(-s, kind="mergesort")
+        out.append(float(np.sum(t[order[:k]] == 1) / n1))
+    return out
+
+
 def cluster_bootstrap_ci(chain_units: list[str], chain_delta: list[float],
                          cluster_of: dict[str, str], draws: int,
                          seed: int) -> dict:
