@@ -1,0 +1,83 @@
+{
+  "schema": "geoaudit.scaleup.ecc_ceiling.v1",
+  "clinical_grade": false,
+  "reads_test_fold": false,
+  "n_rows": 234838,
+  "n_wires_baseline": 645,
+  "withdrawal": {
+    "charged": {
+      "spearman_vs_n_c": 0.9217923335323414,
+      "withdrawn": false
+    },
+    "hphob": {
+      "spearman_vs_n_c": 0.97942014082859,
+      "withdrawn": true
+    },
+    "polar": {
+      "spearman_vs_n_c": 0.9419127261254682,
+      "withdrawn": false
+    }
+  },
+  "kept": [
+    "e_charged@10",
+    "e_polar@10"
+  ],
+  "arms": {
+    "baseline_645": {
+      "raw": 0.7975137503750888,
+      "gated": 0.8007733428798982,
+      "gate": "r18 w0.5",
+      "newton_steps": 9,
+      "converged": true
+    },
+    "edges": {
+      "raw": 0.7976186294330314,
+      "gated": 0.801142653868354,
+      "gate": "r18 w0.5",
+      "newton_steps": 9,
+      "converged": true,
+      "columns": [
+        "e_charged@10",
+        "e_polar@10"
+      ],
+      "paired_minus_baseline": {
+        "n_paired": 384,
+        "delta": 0.000369,
+        "ci95": [
+          -0.000206,
+          0.000933
+        ],
+        "excludes_zero": false
+      }
+    },
+    "edges_and_controls": {
+      "raw": 0.7975392677479753,
+      "gated": 0.8011731481397096,
+      "gate": "r18 w0.5",
+      "newton_steps": 9,
+      "converged": true,
+      "columns": [
+        "e_charged@10",
+        "e_polar@10",
+        "ctrl~n_res@10",
+        "ctrl~n_c_charged@10",
+        "ctrl~n_c_polar@10"
+      ],
+      "paired_minus_baseline": {
+        "n_paired": 384,
+        "delta": 0.0004,
+        "ci95": [
+          -0.000292,
+          0.001051
+        ],
+        "excludes_zero": false
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.8",
+    "numpy": "2.4.6"
+  },
+  "what_this_does_not_say": "A gap here is a training-half ceiling read. It does not open the official test fold and it does not attach the columns to a deployed field.",
+  "artifact_sha256": "d6d9630fec5b880af16cbbbb61a17423db2d51d13436b88bf1d71a71af5ffa16"
+}
