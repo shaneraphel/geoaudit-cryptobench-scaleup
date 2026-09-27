@@ -11,6 +11,7 @@ import numpy as np
 import pytest
 
 from scaleup import compatible as Cmod
+from scaleup import ecc as E
 from scaleup import constants as C
 from scaleup import data as D
 from scaleup import digits as DG
@@ -284,6 +285,33 @@ def test_nested_fit_prefixes_are_nested():
     assert set(np.flatnonzero(mid)) <= set(np.flatnonzero(full))
     assert full.tolist() == is_fit.tolist()
     assert not small[16:].any()
+
+
+def test_edge_count_splits_three_graphs():
+    """Abstract empty, path and K3 take 0, 2 and 3 edges on the same three vertices."""
+    S = np.arange(3)
+    empty = np.zeros((3, 3), dtype=bool)
+    path = np.zeros((3, 3), dtype=bool)
+    path[0, 1] = path[1, 0] = path[1, 2] = path[2, 1] = True
+    clique = np.ones((3, 3), dtype=bool)
+    np.fill_diagonal(clique, False)
+    assert [E.induced_edges(g, S) for g in (empty, path, clique)] == [0, 2, 3]
+    charged = 1  # ARG
+    def row(xs):
+        xyz = np.zeros((3, 3))
+        xyz[1, 0] = xs[0]
+        xyz[2, 0] = xs[1]
+        return E.chain_ecc(xyz, np.array([charged, charged, charged]))
+    alone = row((20.0, 40.0))
+    path_g = row((6.0, -6.0))   # both in the ball, 12 Å apart
+    clique_g = row((6.0, 3.0))
+    e = E.COL["e_charged@10"]
+    n_c = E.COL["ctrl~n_c_charged@10"]
+    assert alone[0, n_c] == 1 and alone[0, e] == 0
+    assert path_g[0, n_c] == 3 and path_g[0, e] == 2
+    assert clique_g[0, n_c] == 3 and clique_g[0, e] == 3
+    assert E.spearman(np.array([0, 1, 2]), np.array([0, 1, 2])) == pytest.approx(1)
+    assert np.isnan(E.spearman(np.array([1, 1, 1]), np.array([0, 1, 2])))
 
 
 def test_no_torch_anywhere():
