@@ -1,0 +1,872 @@
+{
+  "schema": "geoaudit.scaleup.external_logistic_posthoc.v1",
+  "clinical_grade": false,
+  "post_hoc": true,
+  "not_a_preregistered_confirmation": true,
+  "reads_official_test_fold": false,
+  "training": {
+    "n_chains": 770,
+    "n_rows": 234838,
+    "newton_steps": 9,
+    "converged": true,
+    "logistic_gate": {
+      "radius": 18.0,
+      "weight": 0.5
+    },
+    "gate_selected_on": "training pick half, then frozen",
+    "propensity": "compiled field table, matched to the training cache"
+  },
+  "sets": {
+    "set_a": {
+      "n_paired": 57,
+      "acf_roc": 0.84114,
+      "logistic_roc": 0.825691,
+      "acf_minus_logistic": {
+        "n_paired": 57,
+        "delta": 0.015448,
+        "ci95": [
+          -0.001188,
+          0.034679
+        ],
+        "excludes_zero": false
+      },
+      "chains": [
+        {
+          "unit": "9eb7_A",
+          "set": "set_a",
+          "n_residues": 468,
+          "n_positive": 23,
+          "acf_roc": 0.90083,
+          "logistic_roc": 0.909135
+        },
+        {
+          "unit": "9x6i_A",
+          "set": "set_a",
+          "n_residues": 242,
+          "n_positive": 28,
+          "acf_roc": 0.89219,
+          "logistic_roc": 0.853471
+        },
+        {
+          "unit": "8xxd_B",
+          "set": "set_a",
+          "n_residues": 449,
+          "n_positive": 27,
+          "acf_roc": 0.906003,
+          "logistic_roc": 0.90732
+        },
+        {
+          "unit": "9bb9_A",
+          "set": "set_a",
+          "n_residues": 475,
+          "n_positive": 11,
+          "acf_roc": 0.971199,
+          "logistic_roc": 0.959248
+        },
+        {
+          "unit": "9dih_A",
+          "set": "set_a",
+          "n_residues": 370,
+          "n_positive": 8,
+          "acf_roc": 0.309047,
+          "logistic_roc": 0.351174
+        },
+        {
+          "unit": "8ylg_A",
+          "set": "set_a",
+          "n_residues": 161,
+          "n_positive": 7,
+          "acf_roc": 0.850649,
+          "logistic_roc": 0.850649
+        },
+        {
+          "unit": "9jpk_A",
+          "set": "set_a",
+          "n_residues": 151,
+          "n_positive": 14,
+          "acf_roc": 0.900417,
+          "logistic_roc": 0.864964
+        },
+        {
+          "unit": "9r7o_B",
+          "set": "set_a",
+          "n_residues": 323,
+          "n_positive": 16,
+          "acf_roc": 0.930782,
+          "logistic_roc": 0.950936
+        },
+        {
+          "unit": "9fsg_A",
+          "set": "set_a",
+          "n_residues": 378,
+          "n_positive": 16,
+          "acf_roc": 0.782804,
+          "logistic_roc": 0.85221
+        },
+        {
+          "unit": "9jvd_B",
+          "set": "set_a",
+          "n_residues": 104,
+          "n_positive": 4,
+          "acf_roc": 0.495,
+          "logistic_roc": 0.515
+        },
+        {
+          "unit": "9tkv_A",
+          "set": "set_a",
+          "n_residues": 674,
+          "n_positive": 13,
+          "acf_roc": 0.821483,
+          "logistic_roc": 0.842546
+        },
+        {
+          "unit": "9jju_A",
+          "set": "set_a",
+          "n_residues": 354,
+          "n_positive": 15,
+          "acf_roc": 0.841101,
+          "logistic_roc": 0.714258
+        },
+        {
+          "unit": "9whf_A",
+          "set": "set_a",
+          "n_residues": 180,
+          "n_positive": 13,
+          "acf_roc": 0.631046,
+          "logistic_roc": 0.333947
+        },
+        {
+          "unit": "9vis_A",
+          "set": "set_a",
+          "n_residues": 185,
+          "n_positive": 19,
+          "acf_roc": 0.89981,
+          "logistic_roc": 0.851617
+        },
+        {
+          "unit": "8yyr_A",
+          "set": "set_a",
+          "n_residues": 496,
+          "n_positive": 16,
+          "acf_roc": 0.965234,
+          "logistic_roc": 0.952083
+        },
+        {
+          "unit": "9cir_A",
+          "set": "set_a",
+          "n_residues": 385,
+          "n_positive": 10,
+          "acf_roc": 0.9208,
+          "logistic_roc": 0.954933
+        },
+        {
+          "unit": "9l92_A",
+          "set": "set_a",
+          "n_residues": 206,
+          "n_positive": 14,
+          "acf_roc": 0.696429,
+          "logistic_roc": 0.806176
+        },
+        {
+          "unit": "9qyz_A",
+          "set": "set_a",
+          "n_residues": 398,
+          "n_positive": 5,
+          "acf_roc": 0.607634,
+          "logistic_roc": 0.503817
+        },
+        {
+          "unit": "9kuq_A",
+          "set": "set_a",
+          "n_residues": 309,
+          "n_positive": 13,
+          "acf_roc": 0.975312,
+          "logistic_roc": 0.973493
+        },
+        {
+          "unit": "9yi3_A",
+          "set": "set_a",
+          "n_residues": 272,
+          "n_positive": 5,
+          "acf_roc": 0.662172,
+          "logistic_roc": 0.367041
+        },
+        {
+          "unit": "9ky9_A",
+          "set": "set_a",
+          "n_residues": 326,
+          "n_positive": 24,
+          "acf_roc": 0.967301,
+          "logistic_roc": 0.964818
+        },
+        {
+          "unit": "9jzw_A",
+          "set": "set_a",
+          "n_residues": 341,
+          "n_positive": 13,
+          "acf_roc": 0.891182,
+          "logistic_roc": 0.915807
+        },
+        {
+          "unit": "9tfd_A",
+          "set": "set_a",
+          "n_residues": 291,
+          "n_positive": 35,
+          "acf_roc": 0.789732,
+          "logistic_roc": 0.810156
+        },
+        {
+          "unit": "11gx_A",
+          "set": "set_a",
+          "n_residues": 620,
+          "n_positive": 5,
+          "acf_roc": 0.878049,
+          "logistic_roc": 0.925854
+        },
+        {
+          "unit": "9hib_A",
+          "set": "set_a",
+          "n_residues": 504,
+          "n_positive": 20,
+          "acf_roc": 0.709917,
+          "logistic_roc": 0.681198
+        },
+        {
+          "unit": "9v67_B",
+          "set": "set_a",
+          "n_residues": 508,
+          "n_positive": 18,
+          "acf_roc": 0.841837,
+          "logistic_roc": 0.879365
+        },
+        {
+          "unit": "9hkb_B",
+          "set": "set_a",
+          "n_residues": 356,
+          "n_positive": 3,
+          "acf_roc": 0.103872,
+          "logistic_roc": 0.182247
+        },
+        {
+          "unit": "9o9q_A",
+          "set": "set_a",
+          "n_residues": 1289,
+          "n_positive": 3,
+          "acf_roc": 0.45775,
+          "logistic_roc": 0.34422
+        },
+        {
+          "unit": "8r9a_A",
+          "set": "set_a",
+          "n_residues": 285,
+          "n_positive": 19,
+          "acf_roc": 0.952117,
+          "logistic_roc": 0.911159
+        },
+        {
+          "unit": "9i9g_A",
+          "set": "set_a",
+          "n_residues": 167,
+          "n_positive": 8,
+          "acf_roc": 0.941824,
+          "logistic_roc": 0.930818
+        },
+        {
+          "unit": "9n4c_A",
+          "set": "set_a",
+          "n_residues": 179,
+          "n_positive": 26,
+          "acf_roc": 0.965561,
+          "logistic_roc": 0.912519
+        },
+        {
+          "unit": "9gu8_B",
+          "set": "set_a",
+          "n_residues": 162,
+          "n_positive": 16,
+          "acf_roc": 0.657534,
+          "logistic_roc": 0.70976
+        },
+        {
+          "unit": "9ifk_A",
+          "set": "set_a",
+          "n_residues": 169,
+          "n_positive": 21,
+          "acf_roc": 0.944981,
+          "logistic_roc": 0.933076
+        },
+        {
+          "unit": "7i7y_A",
+          "set": "set_a",
+          "n_residues": 327,
+          "n_positive": 14,
+          "acf_roc": 0.940438,
+          "logistic_roc": 0.942036
+        },
+        {
+          "unit": "8x6a_A",
+          "set": "set_a",
+          "n_residues": 376,
+          "n_positive": 10,
+          "acf_roc": 0.954645,
+          "logistic_roc": 0.95
+        },
+        {
+          "unit": "9lmg_A",
+          "set": "set_a",
+          "n_residues": 527,
+          "n_positive": 42,
+          "acf_roc": 0.95297,
+          "logistic_roc": 0.929504
+        },
+        {
+          "unit": "9d7l_A",
+          "set": "set_a",
+          "n_residues": 380,
+          "n_positive": 3,
+          "acf_roc": 0.934571,
+          "logistic_roc": 0.920424
+        },
+        {
+          "unit": "9m1q_A",
+          "set": "set_a",
+          "n_residues": 156,
+          "n_positive": 21,
+          "acf_roc": 0.716049,
+          "logistic_roc": 0.735097
+        },
+        {
+          "unit": "9d5f_A",
+          "set": "set_a",
+          "n_residues": 271,
+          "n_positive": 13,
+          "acf_roc": 0.646094,
+          "logistic_roc": 0.593321
+        },
+        {
+          "unit": "9mhb_A",
+          "set": "set_a",
+          "n_residues": 336,
+          "n_positive": 28,
+          "acf_roc": 0.928687,
+          "logistic_roc": 0.923122
+        },
+        {
+          "unit": "8vir_A",
+          "set": "set_a",
+          "n_residues": 211,
+          "n_positive": 23,
+          "acf_roc": 0.922525,
+          "logistic_roc": 0.911193
+        },
+        {
+          "unit": "8s38_B",
+          "set": "set_a",
+          "n_residues": 414,
+          "n_positive": 26,
+          "acf_roc": 0.909298,
+          "logistic_roc": 0.924564
+        },
+        {
+          "unit": "8v35_A",
+          "set": "set_a",
+          "n_residues": 431,
+          "n_positive": 31,
+          "acf_roc": 0.897016,
+          "logistic_roc": 0.905161
+        },
+        {
+          "unit": "9k00_A",
+          "set": "set_a",
+          "n_residues": 321,
+          "n_positive": 14,
+          "acf_roc": 0.978595,
+          "logistic_roc": 0.963704
+        },
+        {
+          "unit": "9bkq_B",
+          "set": "set_a",
+          "n_residues": 201,
+          "n_positive": 7,
+          "acf_roc": 0.899116,
+          "logistic_roc": 0.92268
+        },
+        {
+          "unit": "9gcy_A",
+          "set": "set_a",
+          "n_residues": 424,
+          "n_positive": 9,
+          "acf_roc": 0.983133,
+          "logistic_roc": 0.968675
+        },
+        {
+          "unit": "9j2z_A",
+          "set": "set_a",
+          "n_residues": 360,
+          "n_positive": 28,
+          "acf_roc": 0.960413,
+          "logistic_roc": 0.969449
+        },
+        {
+          "unit": "9ql9_A",
+          "set": "set_a",
+          "n_residues": 154,
+          "n_positive": 14,
+          "acf_roc": 0.911735,
+          "logistic_roc": 0.866837
+        },
+        {
+          "unit": "9c9c_B",
+          "set": "set_a",
+          "n_residues": 189,
+          "n_positive": 6,
+          "acf_roc": 0.947177,
+          "logistic_roc": 0.867942
+        },
+        {
+          "unit": "9lio_A",
+          "set": "set_a",
+          "n_residues": 344,
+          "n_positive": 13,
+          "acf_roc": 0.97862,
+          "logistic_roc": 0.982803
+        },
+        {
+          "unit": "9hln_A",
+          "set": "set_a",
+          "n_residues": 368,
+          "n_positive": 15,
+          "acf_roc": 0.883853,
+          "logistic_roc": 0.89745
+        },
+        {
+          "unit": "8weu_A",
+          "set": "set_a",
+          "n_residues": 481,
+          "n_positive": 15,
+          "acf_roc": 0.983405,
+          "logistic_roc": 0.977825
+        },
+        {
+          "unit": "9cx8_A",
+          "set": "set_a",
+          "n_residues": 291,
+          "n_positive": 22,
+          "acf_roc": 0.912301,
+          "logistic_roc": 0.916357
+        },
+        {
+          "unit": "8wdq_A",
+          "set": "set_a",
+          "n_residues": 273,
+          "n_positive": 14,
+          "acf_roc": 0.967733,
+          "logistic_roc": 0.963596
+        },
+        {
+          "unit": "9xau_A",
+          "set": "set_a",
+          "n_residues": 437,
+          "n_positive": 6,
+          "acf_roc": 0.795824,
+          "logistic_roc": 0.765661
+        },
+        {
+          "unit": "8hzy_A",
+          "set": "set_a",
+          "n_residues": 462,
+          "n_positive": 19,
+          "acf_roc": 0.968278,
+          "logistic_roc": 0.959368
+        },
+        {
+          "unit": "8xj9_A",
+          "set": "set_a",
+          "n_residues": 204,
+          "n_positive": 23,
+          "acf_roc": 0.910882,
+          "logistic_roc": 0.892626
+        }
+      ],
+      "skipped": []
+    },
+    "set_bc": {
+      "n_paired": 45,
+      "acf_roc": 0.791665,
+      "logistic_roc": 0.796789,
+      "acf_minus_logistic": {
+        "n_paired": 45,
+        "delta": -0.005123,
+        "ci95": [
+          -0.041494,
+          0.03328
+        ],
+        "excludes_zero": false
+      },
+      "chains": [
+        {
+          "unit": "8jyl_A",
+          "set": "set_b",
+          "n_residues": 527,
+          "n_positive": 17,
+          "acf_roc": 0.964475,
+          "logistic_roc": 0.972434
+        },
+        {
+          "unit": "9vhe_D",
+          "set": "set_b",
+          "n_residues": 429,
+          "n_positive": 19,
+          "acf_roc": 0.73389,
+          "logistic_roc": 0.797433
+        },
+        {
+          "unit": "9m1j_G",
+          "set": "set_b",
+          "n_residues": 184,
+          "n_positive": 23,
+          "acf_roc": 0.497435,
+          "logistic_roc": 0.808264
+        },
+        {
+          "unit": "8udl_A",
+          "set": "set_b",
+          "n_residues": 974,
+          "n_positive": 14,
+          "acf_roc": 0.945908,
+          "logistic_roc": 0.906399
+        },
+        {
+          "unit": "9sgy_A",
+          "set": "set_b",
+          "n_residues": 565,
+          "n_positive": 16,
+          "acf_roc": 0.752618,
+          "logistic_roc": 0.691029
+        },
+        {
+          "unit": "9u6f_B",
+          "set": "set_b",
+          "n_residues": 578,
+          "n_positive": 19,
+          "acf_roc": 0.916675,
+          "logistic_roc": 0.970342
+        },
+        {
+          "unit": "9uks_D",
+          "set": "set_b",
+          "n_residues": 1362,
+          "n_positive": 7,
+          "acf_roc": 0.963205,
+          "logistic_roc": 0.902056
+        },
+        {
+          "unit": "9ebt_A",
+          "set": "set_c",
+          "n_residues": 604,
+          "n_positive": 23,
+          "acf_roc": 0.906832,
+          "logistic_roc": 0.713837
+        },
+        {
+          "unit": "8k8y_A",
+          "set": "set_c",
+          "n_residues": 719,
+          "n_positive": 23,
+          "acf_roc": 0.954398,
+          "logistic_roc": 0.88031
+        },
+        {
+          "unit": "9p8s_A",
+          "set": "set_c",
+          "n_residues": 453,
+          "n_positive": 8,
+          "acf_roc": 0.382865,
+          "logistic_roc": 0.601404
+        },
+        {
+          "unit": "9b0x_F",
+          "set": "set_c",
+          "n_residues": 469,
+          "n_positive": 18,
+          "acf_roc": 0.916975,
+          "logistic_roc": 0.976349
+        },
+        {
+          "unit": "9n6c_A",
+          "set": "set_c",
+          "n_residues": 425,
+          "n_positive": 17,
+          "acf_roc": 0.238033,
+          "logistic_roc": 0.560554
+        },
+        {
+          "unit": "9bji_F",
+          "set": "set_c",
+          "n_residues": 453,
+          "n_positive": 17,
+          "acf_roc": 0.72612,
+          "logistic_roc": 0.837965
+        },
+        {
+          "unit": "29hb_e",
+          "set": "set_c",
+          "n_residues": 563,
+          "n_positive": 4,
+          "acf_roc": 0.707961,
+          "logistic_roc": 0.576476
+        },
+        {
+          "unit": "9waj_A",
+          "set": "set_c",
+          "n_residues": 981,
+          "n_positive": 22,
+          "acf_roc": 0.808797,
+          "logistic_roc": 0.688454
+        },
+        {
+          "unit": "9pio_A",
+          "set": "set_c",
+          "n_residues": 297,
+          "n_positive": 21,
+          "acf_roc": 0.833506,
+          "logistic_roc": 0.917702
+        },
+        {
+          "unit": "12ec_J",
+          "set": "set_c",
+          "n_residues": 1338,
+          "n_positive": 8,
+          "acf_roc": 0.836372,
+          "logistic_roc": 0.883647
+        },
+        {
+          "unit": "9gcu_A",
+          "set": "set_c",
+          "n_residues": 418,
+          "n_positive": 12,
+          "acf_roc": 0.839286,
+          "logistic_roc": 0.758621
+        },
+        {
+          "unit": "9ud2_C",
+          "set": "set_c",
+          "n_residues": 257,
+          "n_positive": 17,
+          "acf_roc": 0.763235,
+          "logistic_roc": 0.840196
+        },
+        {
+          "unit": "9x94_B",
+          "set": "set_c",
+          "n_residues": 747,
+          "n_positive": 18,
+          "acf_roc": 0.601509,
+          "logistic_roc": 0.79241
+        },
+        {
+          "unit": "8vrn_E",
+          "set": "set_c",
+          "n_residues": 333,
+          "n_positive": 4,
+          "acf_roc": 0.349544,
+          "logistic_roc": 0.280395
+        },
+        {
+          "unit": "9nmr_A",
+          "set": "set_c",
+          "n_residues": 4397,
+          "n_positive": 8,
+          "acf_roc": 0.829318,
+          "logistic_roc": 0.868649
+        },
+        {
+          "unit": "8yh8_A",
+          "set": "set_c",
+          "n_residues": 474,
+          "n_positive": 12,
+          "acf_roc": 0.972403,
+          "logistic_roc": 0.978896
+        },
+        {
+          "unit": "9rgd_B",
+          "set": "set_c",
+          "n_residues": 344,
+          "n_positive": 13,
+          "acf_roc": 0.216361,
+          "logistic_roc": 0.188008
+        },
+        {
+          "unit": "9jnz_K",
+          "set": "set_c",
+          "n_residues": 525,
+          "n_positive": 23,
+          "acf_roc": 0.801663,
+          "logistic_roc": 0.808678
+        },
+        {
+          "unit": "9hve_O",
+          "set": "set_c",
+          "n_residues": 460,
+          "n_positive": 15,
+          "acf_roc": 0.755955,
+          "logistic_roc": 0.817528
+        },
+        {
+          "unit": "9jc1_D",
+          "set": "set_c",
+          "n_residues": 464,
+          "n_positive": 19,
+          "acf_roc": 0.923122,
+          "logistic_roc": 0.957067
+        },
+        {
+          "unit": "9efq_B",
+          "set": "set_c",
+          "n_residues": 373,
+          "n_positive": 5,
+          "acf_roc": 0.803261,
+          "logistic_roc": 0.330978
+        },
+        {
+          "unit": "9nkg_C",
+          "set": "set_c",
+          "n_residues": 389,
+          "n_positive": 22,
+          "acf_roc": 0.847164,
+          "logistic_roc": 0.842829
+        },
+        {
+          "unit": "9k53_E",
+          "set": "set_c",
+          "n_residues": 389,
+          "n_positive": 5,
+          "acf_roc": 0.598958,
+          "logistic_roc": 0.575
+        },
+        {
+          "unit": "9hnp_A",
+          "set": "set_c",
+          "n_residues": 383,
+          "n_positive": 19,
+          "acf_roc": 0.813476,
+          "logistic_roc": 0.876807
+        },
+        {
+          "unit": "9isq_A",
+          "set": "set_c",
+          "n_residues": 877,
+          "n_positive": 28,
+          "acf_roc": 0.774861,
+          "logistic_roc": 0.532265
+        },
+        {
+          "unit": "9b77_A",
+          "set": "set_c",
+          "n_residues": 313,
+          "n_positive": 15,
+          "acf_roc": 0.827964,
+          "logistic_roc": 0.829978
+        },
+        {
+          "unit": "9mrq_D",
+          "set": "set_c",
+          "n_residues": 1269,
+          "n_positive": 8,
+          "acf_roc": 0.826527,
+          "logistic_roc": 0.802637
+        },
+        {
+          "unit": "8j0s_E",
+          "set": "set_c",
+          "n_residues": 469,
+          "n_positive": 17,
+          "acf_roc": 0.92608,
+          "logistic_roc": 0.965252
+        },
+        {
+          "unit": "9j3j_A",
+          "set": "set_c",
+          "n_residues": 490,
+          "n_positive": 19,
+          "acf_roc": 0.894849,
+          "logistic_roc": 0.931165
+        },
+        {
+          "unit": "9gxk_A",
+          "set": "set_c",
+          "n_residues": 692,
+          "n_positive": 22,
+          "acf_roc": 0.977001,
+          "logistic_roc": 0.970353
+        },
+        {
+          "unit": "9qh7_F",
+          "set": "set_c",
+          "n_residues": 139,
+          "n_positive": 10,
+          "acf_roc": 0.722481,
+          "logistic_roc": 0.725581
+        },
+        {
+          "unit": "9nye_A",
+          "set": "set_c",
+          "n_residues": 307,
+          "n_positive": 18,
+          "acf_roc": 0.746251,
+          "logistic_roc": 0.720877
+        },
+        {
+          "unit": "9itj_D",
+          "set": "set_c",
+          "n_residues": 466,
+          "n_positive": 19,
+          "acf_roc": 0.87107,
+          "logistic_roc": 0.93736
+        },
+        {
+          "unit": "9t0e_A",
+          "set": "set_c",
+          "n_residues": 1671,
+          "n_positive": 15,
+          "acf_roc": 0.984259,
+          "logistic_roc": 0.986111
+        },
+        {
+          "unit": "9bdq_A",
+          "set": "set_c",
+          "n_residues": 1301,
+          "n_positive": 16,
+          "acf_roc": 0.95749,
+          "logistic_roc": 0.957733
+        },
+        {
+          "unit": "9e26_C",
+          "set": "set_c",
+          "n_residues": 422,
+          "n_positive": 18,
+          "acf_roc": 0.984461,
+          "logistic_roc": 0.974697
+        },
+        {
+          "unit": "9j3o_A",
+          "set": "set_c",
+          "n_residues": 496,
+          "n_positive": 13,
+          "acf_roc": 0.978818,
+          "logistic_roc": 0.973563
+        },
+        {
+          "unit": "8xxu_A",
+          "set": "set_c",
+          "n_residues": 316,
+          "n_positive": 13,
+          "acf_roc": 0.951511,
+          "logistic_roc": 0.947195
+        }
+      ],
+      "skipped": []
+    }
+  },
+  "artifact_sha256": "3acdb947eb38ea19d5bd6493ab1e07d649eae2277db6a8690ec356b584593359"
+}
