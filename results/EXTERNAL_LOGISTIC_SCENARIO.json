@@ -1,0 +1,64 @@
+{
+  "schema": "geoaudit.scaleup.external_logistic_scenario.v1",
+  "clinical_grade": false,
+  "post_hoc": true,
+  "not_a_preregistered_confirmation": true,
+  "reads_official_test_fold": false,
+  "scenario": {
+    "name": "set_a chains shorter than the training-fold median length",
+    "threshold_residues": 280.0,
+    "threshold_source": "median of n_res_per on the pinned training wide cache",
+    "why_this_cut": "one training-side constant, applied after an exploratory length split pointed at short chains",
+    "set_a_shorter": {
+      "n": 20,
+      "reported": true,
+      "acf_roc": 0.822946,
+      "logistic_roc": 0.784116,
+      "acf_minus_logistic": {
+        "n_paired": 20,
+        "delta": 0.03883,
+        "ci95": [
+          0.001403,
+          0.084056
+        ],
+        "excludes_zero": true
+      }
+    },
+    "set_a_not_shorter": {
+      "n": 37,
+      "reported": true,
+      "acf_roc": 0.850974,
+      "logistic_roc": 0.848164,
+      "acf_minus_logistic": {
+        "n_paired": 37,
+        "delta": 0.00281,
+        "ci95": [
+          -0.010215,
+          0.016703
+        ],
+        "excludes_zero": false
+      }
+    },
+    "set_bc_shorter": {
+      "n": 3,
+      "reported": false
+    },
+    "set_bc_not_shorter": {
+      "n": 42,
+      "reported": true,
+      "acf_roc": 0.800995,
+      "logistic_roc": 0.797177,
+      "acf_minus_logistic": {
+        "n_paired": 42,
+        "delta": 0.003818,
+        "ci95": [
+          -0.030783,
+          0.041642
+        ],
+        "excludes_zero": false
+      }
+    },
+    "set_a_shorter_n_clusters": 20
+  },
+  "search_that_preceded_the_cut": "positive-count thirds, length thirds, and the previously published under-10 / 10-to-22 / over-22 cryptic-count bands, on Set A and on B+C. The only counting-field interval excluding zero from above was the short third of Set A. Two B+C middle bands excluded zero from below, toward logistic."
+}
