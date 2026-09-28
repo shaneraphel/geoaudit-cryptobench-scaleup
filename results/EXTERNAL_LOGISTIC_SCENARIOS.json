@@ -1,0 +1,386 @@
+{
+  "schema": "geoaudit.scaleup.external_logistic_scenarios.v1",
+  "clinical_grade": false,
+  "post_hoc": true,
+  "cuts_named_before_this_logistic": "under ten and over twenty-two cryptic residues, and length 336, are the cuts in EXTERNAL_SET_DIFFICULTY.json. Set B and Set C are the frozen cryo-EM sets. No cut was added after seeing which interval excluded zero.",
+  "mean_paired": {
+    "all_external": {
+      "n_paired": 102,
+      "acf_roc": 0.819313,
+      "logistic_roc": 0.81294,
+      "acf_minus_logistic": {
+        "n_paired": 102,
+        "delta": 0.006373,
+        "ci95": [
+          -0.012,
+          0.026197
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 52
+    },
+    "set_a": {
+      "n_paired": 57,
+      "acf_roc": 0.84114,
+      "logistic_roc": 0.825691,
+      "acf_minus_logistic": {
+        "n_paired": 57,
+        "delta": 0.015448,
+        "ci95": [
+          -0.001188,
+          0.034679
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 32
+    },
+    "set_bc": {
+      "n_paired": 45,
+      "acf_roc": 0.791665,
+      "logistic_roc": 0.796789,
+      "acf_minus_logistic": {
+        "n_paired": 45,
+        "delta": -0.005123,
+        "ci95": [
+          -0.041494,
+          0.03328
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 20
+    },
+    "set_b": {
+      "n_paired": 7,
+      "acf_roc": 0.824887,
+      "logistic_roc": 0.863994,
+      "acf_minus_logistic": {
+        "n_paired": 7,
+        "delta": -0.039107,
+        "ci95": [
+          -0.137264,
+          0.032038
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 3
+    },
+    "set_c": {
+      "n_paired": 38,
+      "acf_roc": 0.785546,
+      "logistic_roc": 0.784409,
+      "acf_minus_logistic": {
+        "n_paired": 38,
+        "delta": 0.001137,
+        "ci95": [
+          -0.036573,
+          0.041312
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 17
+    },
+    "under_ten_cryptic": {
+      "n_paired": 23,
+      "acf_roc": 0.702775,
+      "logistic_roc": 0.662498,
+      "acf_minus_logistic": {
+        "n_paired": 23,
+        "delta": 0.040278,
+        "ci95": [
+          -0.009631,
+          0.095504
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 14
+    },
+    "ten_to_twenty_two_cryptic": {
+      "n_paired": 61,
+      "acf_roc": 0.845368,
+      "logistic_roc": 0.854526,
+      "acf_minus_logistic": {
+        "n_paired": 61,
+        "delta": -0.009157,
+        "ci95": [
+          -0.028453,
+          0.010255
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 28
+    },
+    "over_twenty_two_cryptic": {
+      "n_paired": 18,
+      "acf_roc": 0.879922,
+      "logistic_roc": 0.864244,
+      "acf_minus_logistic": {
+        "n_paired": 18,
+        "delta": 0.015678,
+        "ci95": [
+          -0.034722,
+          0.063097
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 10
+    },
+    "length_at_most_336": {
+      "n_paired": 37,
+      "acf_roc": 0.82503,
+      "logistic_roc": 0.813738,
+      "acf_minus_logistic": {
+        "n_paired": 37,
+        "delta": 0.011292,
+        "ci95": [
+          -0.018972,
+          0.041054
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 22
+    },
+    "length_above_336": {
+      "n_paired": 65,
+      "acf_roc": 0.816058,
+      "logistic_roc": 0.812486,
+      "acf_minus_logistic": {
+        "n_paired": 65,
+        "delta": 0.003572,
+        "ci95": [
+          -0.020245,
+          0.029131
+        ],
+        "excludes_zero": false
+      },
+      "n_acf_ahead": 30
+    }
+  },
+  "middle_60": {
+    "all_external": {
+      "n": 102,
+      "n_trimmed_each_side": 20,
+      "middle_60_mean": 0.000962,
+      "ci95": [
+        -0.008632,
+        0.010962
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.106527,
+      "best_wins_mean": 0.136045
+    },
+    "set_a": {
+      "n": 57,
+      "n_trimmed_each_side": 11,
+      "middle_60_mean": 0.004732,
+      "ci95": [
+        -0.004365,
+        0.015035
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.049145,
+      "best_wins_mean": 0.114138
+    },
+    "set_bc": {
+      "n": 45,
+      "n_trimmed_each_side": 9,
+      "middle_60_mean": -0.008523,
+      "ci95": [
+        -0.028968,
+        0.015853
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.160625,
+      "best_wins_mean": 0.160577
+    },
+    "set_b": {
+      "n": 7,
+      "n_trimmed_each_side": 1,
+      "middle_60_mean": -0.004902,
+      "ci95": [
+        -0.140224,
+        0.047503
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.310829,
+      "best_wins_mean": 0.061589
+    },
+    "set_c": {
+      "n": 38,
+      "n_trimmed_each_side": 8,
+      "middle_60_mean": -0.009355,
+      "ci95": [
+        -0.029467,
+        0.01749
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.141823,
+      "best_wins_mean": 0.17295
+    },
+    "under_ten_cryptic": {
+      "n": 23,
+      "n_trimmed_each_side": 5,
+      "middle_60_mean": 0.018789,
+      "ci95": [
+        -0.01266,
+        0.058481
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.086824,
+      "best_wins_mean": 0.223249
+    },
+    "ten_to_twenty_two_cryptic": {
+      "n": 61,
+      "n_trimmed_each_side": 12,
+      "middle_60_mean": -0.006917,
+      "ci95": [
+        -0.019412,
+        0.004951
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.106641,
+      "best_wins_mean": 0.08142
+    },
+    "over_twenty_two_cryptic": {
+      "n": 18,
+      "n_trimmed_each_side": 4,
+      "middle_60_mean": 0.007504,
+      "ci95": [
+        -0.005374,
+        0.038053
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.088889,
+      "best_wins_mean": 0.14068
+    },
+    "length_at_most_336": {
+      "n": 37,
+      "n_trimmed_each_side": 7,
+      "middle_60_mean": 0.008745,
+      "ci95": [
+        -0.004853,
+        0.022303
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.09685,
+      "best_wins_mean": 0.127803
+    },
+    "length_above_336": {
+      "n": 65,
+      "n_trimmed_each_side": 13,
+      "middle_60_mean": -0.004655,
+      "ci95": [
+        -0.01748,
+        0.010853
+      ],
+      "excludes_zero": false,
+      "worst_losses_mean": -0.108244,
+      "best_wins_mean": 0.140069
+    }
+  },
+  "largest_acf_leads": [
+    {
+      "unit": "9ebt_A",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 604,
+      "n_positive": 23,
+      "acf_roc": 0.906832,
+      "logistic_roc": 0.713837,
+      "acf_minus_logistic": 0.192995
+    },
+    {
+      "unit": "9isq_A",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 877,
+      "n_positive": 28,
+      "acf_roc": 0.774861,
+      "logistic_roc": 0.532265,
+      "acf_minus_logistic": 0.242596
+    },
+    {
+      "unit": "9yi3_A",
+      "pool": "set_a",
+      "set": "set_a",
+      "n_residues": 272,
+      "n_positive": 5,
+      "acf_roc": 0.662172,
+      "logistic_roc": 0.367041,
+      "acf_minus_logistic": 0.295131
+    },
+    {
+      "unit": "9whf_A",
+      "pool": "set_a",
+      "set": "set_a",
+      "n_residues": 180,
+      "n_positive": 13,
+      "acf_roc": 0.631046,
+      "logistic_roc": 0.333947,
+      "acf_minus_logistic": 0.297099
+    },
+    {
+      "unit": "9efq_B",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 373,
+      "n_positive": 5,
+      "acf_roc": 0.803261,
+      "logistic_roc": 0.330978,
+      "acf_minus_logistic": 0.472283
+    }
+  ],
+  "largest_logistic_leads": [
+    {
+      "unit": "9n6c_A",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 425,
+      "n_positive": 17,
+      "acf_roc": 0.238033,
+      "logistic_roc": 0.560554,
+      "acf_minus_logistic": -0.322521
+    },
+    {
+      "unit": "9m1j_G",
+      "pool": "set_bc",
+      "set": "set_b",
+      "n_residues": 184,
+      "n_positive": 23,
+      "acf_roc": 0.497435,
+      "logistic_roc": 0.808264,
+      "acf_minus_logistic": -0.310829
+    },
+    {
+      "unit": "9p8s_A",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 453,
+      "n_positive": 8,
+      "acf_roc": 0.382865,
+      "logistic_roc": 0.601404,
+      "acf_minus_logistic": -0.218539
+    },
+    {
+      "unit": "9x94_B",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 747,
+      "n_positive": 18,
+      "acf_roc": 0.601509,
+      "logistic_roc": 0.79241,
+      "acf_minus_logistic": -0.190901
+    },
+    {
+      "unit": "9bji_F",
+      "pool": "set_bc",
+      "set": "set_c",
+      "n_residues": 453,
+      "n_positive": 17,
+      "acf_roc": 0.72612,
+      "logistic_roc": 0.837965,
+      "acf_minus_logistic": -0.111845
+    }
+  ],
+  "what_is_proved": "No cut in this file has a mean paired interval that excludes zero. Individual chains differ by several tenths in both directions. That is a case list, not a proof that the counting field ranks cryptic residues better than logistic regression.",
+  "artifact_sha256": "dd030fafa5bcc1b2baebe8a12e289a04682f4bfe55acf0438eeb0708d954cf08"
+}
